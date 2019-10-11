@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,EACC,qBAAsB,CACtB,QAAS,CACT,SAAU,CACV,eACD,CAEA,OACC,kBAAwB,CACxB,WAAY,CACZ,aACD","file":"main.3498ef16.chunk.css","sourcesContent":["* {\n\tbox-sizing: border-box;\n\tmargin: 0;\n\tpadding: 0;\n\toverflow: hidden;\n}\n\n.todos {\n\tmargin: 25px auto 0 auto;\n\twidth: 750px;\n\toverflow: auto;\n}\n"]}
