@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import Header from './components/Header'
+import AddTodo from './components/AddTodo'
+import Todos from './components/Todos'
+import Women from './components/Women'
+import uuid from 'uuid'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	state = {
+		todos: [
+			{
+				id: uuid.v4(),
+				title: 'Wash the machine'
+			},
+			{
+				id: uuid.v4(),
+				title: 'Prepare the dinner'
+			},
+			{
+				id: uuid.v4(),
+				title: 'Go to swimming pool'
+			}
+		]
+	}
+
+	//Delete todo
+	delTodo = (id) => {
+		this.setState({ todos: [...this.state.todos.filter((todo) => todo.id !== id)] })
+	}
+	//Add todo
+	addTodo = (title) => {
+		const newTodo = {
+			id: uuid.v4(),
+			title
+		}
+		this.setState({ todos: [...this.state.todos, newTodo] })
+	}
+
+	render() {
+		return (
+			<div className="App">
+				<div className="container">
+					<Women />
+					<Header />
+					<AddTodo addTodo={this.addTodo} />
+					<div className="todos">
+						<Todos todos={this.state.todos} delTodo={this.delTodo} />
+					</div>
+				</div>
+			</div>
+		)
+	}
 }
 
-export default App;
+export default App
